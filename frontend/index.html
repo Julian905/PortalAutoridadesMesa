@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,63 +9,94 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Leaflet para el mapa -->
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    >
+    <!-- Leaflet -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 
 <body>
 
+
+
     <header>
         <h1>Portal para Autoridades de Mesa</h1>
-        <p>Registro de postulantes y charlas de orientación</p>
+
+        <p>
+            Portal de inscripción para postulantes a autoridades de mesa
+        </p>
     </header>
+
 
     <main>
 
-        <section>
+
+
+        <section id="listaCharlas">
+
             <h2>Charlas de orientación</h2>
 
-            <div id="listaCharlas">
-                <!-- Las charlas aparecerán acá -->
-            </div>
+            <!-- Las charlas se cargan desde JavaScript -->
+
         </section>
 
 
+
         <section>
+
             <h2>Ubicación de las sedes</h2>
 
             <div id="map"></div>
+
         </section>
 
 
+
         <section>
-            <h2>Inscripción como postulante</h2>
+
+            <h2>Inscripción como autoridad de mesa</h2>
 
             <form id="formInscripcion">
+
+                <!-- DATOS PERSONALES -->
+
+                <h3>Datos personales</h3>
+
+                <label for="nombre">
+                    Nombre:
+                </label>
 
                 <input
                     type="text"
                     id="nombre"
-                    placeholder="Nombre"
                     required
                 >
+
+
+                <label for="apellido">
+                    Apellido:
+                </label>
 
                 <input
                     type="text"
                     id="apellido"
-                    placeholder="Apellido"
                     required
                 >
+
+
+                <label for="dni">
+                    DNI:
+                </label>
 
                 <input
                     type="text"
                     id="dni"
-                    placeholder="DNI"
                     required
                 >
+
+
+                <label for="fechaNacimiento">
+                    Fecha de nacimiento:
+                </label>
 
                 <input
                     type="date"
@@ -72,72 +104,142 @@
                     required
                 >
 
+
+                <label for="direccion">
+                    Dirección actual:
+                </label>
+
                 <input
                     type="text"
                     id="direccion"
-                    placeholder="Dirección"
                     required
                 >
+
+
+                <label for="telefono">
+                    Teléfono:
+                </label>
 
                 <input
                     type="tel"
                     id="telefono"
-                    placeholder="Teléfono"
                     required
                 >
+
+
+                <label for="email">
+                    Correo electrónico:
+                </label>
 
                 <input
                     type="email"
                     id="email"
-                    placeholder="Correo electrónico"
                     required
                 >
 
-                <input
-                    type="text"
-                    id="distrito"
-                    placeholder="Distrito electoral"
-                    required
-                >
+
+                <label for="distrito">
+                    Distrito electoral:
+                </label>
+
+                <select id="distrito" required>
+
+                    <option value="">
+                        Seleccionar distrito
+                    </option>
+
+                    <option value="1">
+                        San Miguel
+                    </option>
+
+                    <option value="2">
+                        José C. Paz
+                    </option>
+
+                </select>
+
+
+                <label for="charla">
+                    Charla de orientación:
+                </label>
+
+                <select id="charla">
+
+                    <option value="">
+                        No deseo participar de una charla
+                    </option>
+
+                </select>
+
+
+
+                <h3>Antecedentes</h3>
+
 
                 <label>
-                    <input type="checkbox" id="fueAutoridad">
+                    <input
+                        type="checkbox"
+                        id="fueAutoridad"
+                    >
+
                     Fui autoridad de mesa anteriormente
                 </label>
 
-                <label>
-                    <input type="checkbox" id="capacitacion">
-                    Cumplí la capacitación
-                </label>
 
                 <label>
-                    <input type="checkbox" id="afiliado">
-                    Estoy afiliado a una agrupación
+                    <input
+                        type="checkbox"
+                        id="capacitacion"
+                    >
+
+                    Realicé una capacitación electoral
+                </label>
+
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="afiliado"
+                    >
+
+                    Estoy afiliado/a a un partido político
+                </label>
+
+
+                <label for="partido">
+                    Nombre del partido político:
                 </label>
 
                 <input
                     type="text"
                     id="partido"
-                    placeholder="Partido político"
                 >
 
+
+
                 <button type="submit">
-                    Inscribirme
+                    Realizar inscripción
                 </button>
 
             </form>
 
-            <p id="mensaje"></p>
+
+            <!-- MENSAJE DE RESULTADO -->
+
+            <div id="mensaje"></div>
 
         </section>
 
     </main>
 
+    
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
 
-    <!-- Leaflet -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
