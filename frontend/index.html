@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portal para Autoridades de Mesa</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Leaflet para el mapa -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+</head>
+
+<body>
+
+    <header>
+        <h1>Portal para Autoridades de Mesa</h1>
+        <p>Registro de postulantes y charlas de orientación</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Charlas de orientación</h2>
+
+            <div id="listaCharlas">
+                <!-- Las charlas aparecerán acá -->
+            </div>
+        </section>
+
+
+        <section>
+            <h2>Ubicación de las sedes</h2>
+
+            <div id="map"></div>
+        </section>
+
+
+        <section>
+            <h2>Inscripción como postulante</h2>
+
+            <form id="formInscripcion">
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Nombre"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="apellido"
+                    placeholder="Apellido"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="dni"
+                    placeholder="DNI"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="fechaNacimiento"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="direccion"
+                    placeholder="Dirección"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    placeholder="Teléfono"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Correo electrónico"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="distrito"
+                    placeholder="Distrito electoral"
+                    required
+                >
+
+                <label>
+                    <input type="checkbox" id="fueAutoridad">
+                    Fui autoridad de mesa anteriormente
+                </label>
+
+                <label>
+                    <input type="checkbox" id="capacitacion">
+                    Cumplí la capacitación
+                </label>
+
+                <label>
+                    <input type="checkbox" id="afiliado">
+                    Estoy afiliado a una agrupación
+                </label>
+
+                <input
+                    type="text"
+                    id="partido"
+                    placeholder="Partido político"
+                >
+
+                <button type="submit">
+                    Inscribirme
+                </button>
+
+            </form>
+
+            <p id="mensaje"></p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
