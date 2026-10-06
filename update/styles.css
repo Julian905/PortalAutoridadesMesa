@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+#EncabezadoPortal {
+    background-color: #18406e;
+    margin: auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tituloEncabezado {
+    color: #ffffff;
+}
+
+main {
+    padding: 1rem 2rem;
+}
+
+.formOculto {
+    display: none !important;
+}
+
+#boton_postularse {
+    padding: 8px 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#boton_postularse:hover {
+    background-color: aqua;
+    border-color: black;
+}
+
+#formInscripcion {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 24px;
+    margin-top: 18px;
+    border-radius: 8px;
+    max-width: 520px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.campo label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.campo input, 
+.campo select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.campo-checkbox {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.campo-checkbox label {
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#boton_enviar {
+    background-color: #18406e;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#boton_enviar:hover {
+    background-color: #133357;
+}
+
+/* --- ESTILOS DE VISTA ADMINISTRADOR --- */
+
+#btnToggleAdmin {
+    background-color: #ffffff;
+    color: #18406e;
+    border: 2px solid #ffffff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#btnToggleAdmin:hover {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.postulante-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.postulante-card h3 {
+    margin: 0 0 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.badge-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.badge-aprobada {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-rechazada {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.acciones-admin {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-aprobar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-rechazar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-aprobar:hover {
+    background-color: #218838;
+}
+
+.btn-rechazar:hover {
+    background-color: #c82333;
+}
