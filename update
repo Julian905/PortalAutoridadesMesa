@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portal para Autoridades de Mesa</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+
+    <header id="EncabezadoPortal">
+        <div id="tituloEncabezado">
+            <h1>Portal para Autoridades de Mesa</h1>
+            <p>Portal de inscripción para postulantes a autoridades de mesa</p>
+        </div>
+        <!-- Botón arriba a la derecha -->
+        <button id="btnToggleAdmin" type="button">⚙️ Vista Administrador</button>
+    </header>
+
+    <!-- VISTA PRINCIPAL (POSTULANTE) -->
+    <div id="vistaPostulante">
+        <main>
+            <section id="listaCharlas">
+                <h2>Charlas de orientación</h2>
+                <!-- Las charlas se cargan desde JavaScript -->
+            </section>
+
+            <section>
+                <h2>Ubicación de las sedes</h2>
+                <div id="map"></div>
+            </section>
+
+            <section>
+                <h2>Inscripción como autoridad de mesa</h2>
+                <button id="boton_postularse">Registrarse como postulante</button>
+
+                <form id="formInscripcion" class="formOculto">
+                    <!-- DATOS PERSONALES -->
+                    <h3>Datos personales</h3>
+
+                    <div class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="dni">DNI:</label>
+                        <input type="text" id="dni" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+                        <input type="date" id="fechaNacimiento" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="direccion">Dirección actual:</label>
+                        <input type="text" id="direccion" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="distrito">Distrito electoral:</label>
+                        <select id="distrito" required>
+                            <option value="">Seleccionar distrito</option>
+                            <option value="1">San Miguel</option>
+                            <option value="2">José C. Paz</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="charla">Charla de orientación:</label>
+                        <select id="charla">
+                            <option value="">No deseo participar de una charla</option>
+                        </select>
+                    </div>
+
+                    <h3>Antecedentes</h3>
+
+                    <div class="campo">
+                        <label>
+                            <input type="checkbox" id="fueAutoridad">
+                            Fui autoridad de mesa anteriormente
+                        </label>
+
+                        <label>
+                            <input type="checkbox" id="capacitacion">
+                            Realicé una capacitación electoral
+                        </label>
+
+                        <label>
+                            <input type="checkbox" id="afiliado">
+                            Estoy afiliado/a a un partido político
+                        </label>
+
+                        <label for="partido">Nombre del partido político:</label>
+                        <input type="text" id="partido">
+                    </div>
+
+                    <button type="submit" id="boton_enviar">
+                        Realizar inscripción
+                    </button>
+                </form>
+
+                <!-- MENSAJE DE RESULTADO -->
+                <div id="mensaje"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- VISTA ADMINISTRADOR -->
+    <div id="vistaAdmin" class="formOculto">
+        <main>
+            <section>
+                <h2>Panel de Administración - Solicitudes de Postulantes</h2>
+                <div id="contenedorPostulantes">
+                    <!-- Se renderiza desde JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
