@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+#EncabezadoPortal {
+    background-color: #18406e;
+    margin: auto;
+    padding: 10px, 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tituloEncabezado {
+    color: #ffffff;
+    justify-content: space-between;
+}
+
+.formOculto {
+    display: none;
+}
+
+#boton_postularse:hover {
+    background-color: aqua;
+    border-color: black;
+}
+
+#formInscripcion {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 24px;
+    margin-top: 18px;
+    border-radius: 8px;
+    max-width: 520px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.campo label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.campo input, 
+.campo select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.campo-checkbox {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.campo-checkbox label {
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#boton_enviar {
+    background-color: #18406e;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#boton_enviar:hover {
+    background-color: #133357;
+}
