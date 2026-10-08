@@ -18,12 +18,14 @@
 
 
 
-    <header>
-        <h1>Portal para Autoridades de Mesa</h1>
+    <header id="EncabezadoPortal">
+        <div id="tituloEncabezado">
+            <h1>Portal para Autoridades de Mesa</h1>
 
-        <p>
-            Portal de inscripción para postulantes a autoridades de mesa
-        </p>
+            <p>
+             Portal de inscripción para postulantes a autoridades de mesa
+            </p>
+        </div>
     </header>
 
 
@@ -54,170 +56,175 @@
         <section>
 
             <h2>Inscripción como autoridad de mesa</h2>
-
-            <form id="formInscripcion">
+                <button id="boton_postularse">Registrarse como postulante</button>
+            <form id="formInscripcion" class="formOculto">
 
                 <!-- DATOS PERSONALES -->
 
                 <h3>Datos personales</h3>
-
-                <label for="nombre">
-                    Nombre:
-                </label>
-
-                <input
+                <div class="campo">
+                    <label for="nombre">
+                     Nombre:
+                    </label>
+                
+                    <input
                     type="text"
                     id="nombre"
                     required
-                >
+                    >
+                </div>
 
-
-                <label for="apellido">
+                <div class="campo">
+                    <label for="apellido">
                     Apellido:
-                </label>
+                 </label>
 
-                <input
+                    <input
                     type="text"
                     id="apellido"
                     required
-                >
+                    >
 
-
-                <label for="dni">
+                </div>
+                <div class="campo">
+                    <label for="dni">
                     DNI:
-                </label>
+                    </label>
 
-                <input
+                    <input
                     type="text"
                     id="dni"
                     required
-                >
-
-
-                <label for="fechaNacimiento">
+                    >
+                </div>
+                <div class="campo">
+                    <label for="fechaNacimiento">
                     Fecha de nacimiento:
-                </label>
-
-                <input
+                    </label>
+                
+                    <input
                     type="date"
                     id="fechaNacimiento"
                     required
-                >
-
-
-                <label for="direccion">
+                    >
+                </div>
+                <div class="campo">
+                    <label for="direccion">
                     Dirección actual:
-                </label>
+                    </label>
 
-                <input
+                    <input
                     type="text"
                     id="direccion"
                     required
-                >
-
-
-                <label for="telefono">
+                    >
+                </div>
+                <div class="campo">
+                    <label for="telefono">
                     Teléfono:
-                </label>
+                    </label>
 
-                <input
+                    <input
                     type="tel"
                     id="telefono"
                     required
-                >
+                    >
 
-
-                <label for="email">
+                </div>
+                <div class="campo">
+                    <label for="email">
                     Correo electrónico:
-                </label>
+                    </label>
 
-                <input
+                
+                    <input
                     type="email"
                     id="email"
                     required
-                >
+                    >
 
-
-                <label for="distrito">
+                </div>
+                <div class="campo">
+                    <label for="distrito">
                     Distrito electoral:
-                </label>
+                    </label>
 
-                <select id="distrito" required>
+                    <select id="distrito" required>
 
-                    <option value="">
+                        <option value="">
                         Seleccionar distrito
-                    </option>
+                        </option>
 
-                    <option value="1">
+                        <option value="1">
                         San Miguel
-                    </option>
+                        </option>
 
-                    <option value="2">
+                        <option value="2">
                         José C. Paz
-                    </option>
+                        </option>
 
-                </select>
-
-
-                <label for="charla">
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="charla">
                     Charla de orientación:
-                </label>
+                    </label>
 
-                <select id="charla">
+                    <select id="charla">
 
-                    <option value="">
-                        No deseo participar de una charla
-                    </option>
+                        <option value="">
+                            No deseo participar de una charla
+                        </option>
 
-                </select>
-
+                    </select>
+                </div>
 
 
                 <h3>Antecedentes</h3>
 
-
-                <label>
-                    <input
+                <div class="campo">
+                    <label>
+                        <input
                         type="checkbox"
                         id="fueAutoridad"
-                    >
+                        >
 
                     Fui autoridad de mesa anteriormente
-                </label>
+                    </label>
 
 
-                <label>
-                    <input
+                    <label>
+                        <input
                         type="checkbox"
                         id="capacitacion"
-                    >
+                        >
 
                     Realicé una capacitación electoral
-                </label>
+                    </label>
 
 
-                <label>
-                    <input
+                    <label>
+                        <input
                         type="checkbox"
                         id="afiliado"
-                    >
+                        >
 
-                    Estoy afiliado/a a un partido político
-                </label>
+                        Estoy afiliado/a a un partido político
+                    </label>
 
 
-                <label for="partido">
+                    <label for="partido">
                     Nombre del partido político:
-                </label>
+                    </label>
 
-                <input
+                    <input
                     type="text"
                     id="partido"
-                >
+                    >
 
+                </div>
 
-
-                <button type="submit">
+                <button type="submit" id="boton_enviar">
                     Realizar inscripción
                 </button>
 

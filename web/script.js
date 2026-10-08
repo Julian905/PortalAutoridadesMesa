@@ -167,6 +167,12 @@ sedes.forEach(sede => {
 const formulario =
     document.getElementById("formInscripcion");
 
+    const btnPostularse = document.getElementById("boton_postularse");
+    
+    btnPostularse.addEventListener("click", () => {
+        formulario.classList.toggle("formOculto");
+        });
+
 formulario.addEventListener(
     "submit",
     function(event) {
