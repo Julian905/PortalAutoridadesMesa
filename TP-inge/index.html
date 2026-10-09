@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,8 @@
     <title>Portal para Autoridades de Mesa</title>
 
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Leaflet -->
-    <link rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
-
 <body>
 
     <header id="EncabezadoPortal">
@@ -21,21 +17,22 @@
             <h1>Portal para Autoridades de Mesa</h1>
             <p>Portal de inscripción para postulantes a autoridades de mesa</p>
         </div>
-        <!-- Botón arriba a la derecha -->
-        <button id="btnToggleAdmin" type="button">⚙️ Vista Administrador</button>
+
+        <button id="btnToggleAdmin" type="button">
+            ⚙️ Vista Administrador
+        </button>
     </header>
 
-    <!-- VISTA PRINCIPAL (POSTULANTE) -->
     <div id="vistaPostulante">
         <main>
-           
-
             <section>
                 <h2>Inscripción como autoridad de mesa</h2>
-                <button id="boton_postularse">Registrarse como postulante</button>
+
+                <button id="boton_postularse" type="button">
+                    Registrarse como postulante
+                </button>
 
                 <form id="formInscripcion" class="formOculto">
-                    <!-- DATOS PERSONALES -->
                     <h3>Datos personales</h3>
 
                     <div class="campo">
@@ -116,33 +113,36 @@
                     </button>
                 </form>
 
-                <!-- MENSAJE DE RESULTADO -->
                 <div id="mensaje"></div>
             </section>
-             <section id="seccionCharlas">
-            <h2>Charlas de orientación</h2>
-            <button id="boton_ver_charlas" type="button">Ver charlas disponibles</button>
-            <div id="listaCharlas" class="formOculto">
-                <!-- Las charlas se cargan desde JavaScript -->
-            </div>
-        </section>
 
-            <section>
+            <section class="seccion-mapa">
                 <h2>Ubicación de las sedes</h2>
-                <div id="map"></div>
+
+                <div class="contenedor-mapa">
+                    <aside id="panelInfoSede" class="panel-info-sede">
+                        <div class="panel-vacio">
+                            <span class="icono-mapa">📍</span>
+                            <h3>Explorá las sedes</h3>
+                            <p>
+                                Seleccioná un marcador del mapa para ver
+                                las charlas disponibles en esa ubicación.
+                            </p>
+                        </div>
+                    </aside>
+
+                    <div id="map"></div>
+                </div>
             </section>
         </main>
     </div>
 
-    <!-- VISTA ADMINISTRADOR -->
     <div id="vistaAdmin" class="formOculto">
         <main>
             <section>
                 <h2>Panel de Administración - Solicitudes de Postulantes</h2>
-                <div id="contenedorPostulantes">
-                    <!-- Se renderiza desde JS -->
-                </div>
-            </section> 
+                <div id="contenedorPostulantes"></div>
+            </section>
         </main>
     </div>
 
@@ -151,6 +151,6 @@
     <script src="admin.js"></script>
     <script src="mapa.js"></script>
     <script src="charlas.js"></script>
-</body>
 
+</body>
 </html>
