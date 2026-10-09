@@ -1,4 +1,3 @@
-
 function limpiarCharlasSeleccionadas() {
     document.querySelectorAll(".charla-item").forEach(tarjeta => {
         tarjeta.classList.remove("charla-activa");
