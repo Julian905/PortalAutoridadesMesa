@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portal para Autoridades de Mesa</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+    <header id="EncabezadoPortal">
+        <div id="tituloEncabezado">
+            <h1>Portal para Autoridades de Mesa</h1>
+            <p>Portal de inscripción para postulantes a autoridades de mesa</p>
+        </div>
+
+        <button id="btnToggleAdmin" type="button">
+            ⚙️ Vista Administrador
+        </button>
+    </header>
+
+    <div id="vistaPostulante">
+        <main>
+            <section>
+                <h2>Inscripción como autoridad de mesa</h2>
+
+                <button id="boton_postularse" type="button">
+                    Registrarse como postulante
+                </button>
+
+                <form id="formInscripcion" class="formOculto">
+                    <h3>Datos personales</h3>
+
+                    <div class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="dni">DNI:</label>
+                        <input type="text" id="dni" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+                        <input type="date" id="fechaNacimiento" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="direccion">Dirección actual:</label>
+                        <input type="text" id="direccion" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="distrito">Distrito electoral:</label>
+                        <select id="distrito" required>
+                            <option value="">Seleccionar distrito</option>
+                            <option value="1">San Miguel</option>
+                            <option value="2">José C. Paz</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="charla">Charla de orientación:</label>
+                        <select id="charla">
+                            <option value="">No deseo participar de una charla</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="sedeEncuentro">Sede del encuentro:</label>
+                        <input type="text" id="sedeEncuentro" readonly>
+                    </div>
+
+                    <div class="campo">
+                        <label for="horarioEncuentro">Horario del encuentro:</label>
+                        <input type="text" id="horarioEncuentro" readonly>
+                    </div>
+
+                    <h3>Antecedentes</h3>
+
+                    <div class="campo">
+                        <label>
+                            <input type="checkbox" id="fueAutoridad">
+                            Fui autoridad de mesa anteriormente
+                        </label>
+
+                        <label>
+                            <input type="checkbox" id="capacitacion">
+                            Realicé una capacitación electoral
+                        </label>
+
+                        <label>
+                            <input type="checkbox" id="afiliado">
+                            Estoy afiliado/a a un partido político
+                        </label>
+
+                        <label for="partido">Nombre del partido político:</label>
+                        <input type="text" id="partido">
+                    </div>
+
+                    <button type="submit" id="boton_enviar">
+                        Realizar inscripción
+                    </button>
+                </form>
+
+                <div id="mensaje"></div>
+            </section>
+
+            <section class="seccion-mapa">
+                <h2>Ubicación de las sedes</h2>
+
+                <div class="contenedor-mapa">
+                    <aside id="panelInfoSede" class="panel-info-sede">
+                        <div class="panel-vacio">
+                            <span class="icono-mapa">📍</span>
+                            <h3>Explorá las sedes</h3>
+                            <p>
+                                Seleccioná un marcador del mapa para ver
+                                las charlas disponibles en esa ubicación.
+                            </p>
+                        </div>
+                    </aside>
+
+                    <div id="map"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="vistaAdmin" class="formOculto">
+        <main>
+            <section>
+                <form id="formLoginAdmin" class="login-admin">
+                    <h2>Acceso de administrador</h2>
+                    <p>Ingresá la contraseña para ver las solicitudes.</p>
+                    <p class="aviso-demo">
+                        Acceso de demostración; esta contraseña no protege una aplicación publicada.
+                    </p>
+                    <div class="campo">
+                        <label for="contrasenaAdmin">Contraseña:</label>
+                        <input type="password" id="contrasenaAdmin" required>
+                    </div>
+                    <button type="submit" id="botonIngresarAdmin">
+                        Ingresar
+                    </button>
+                    <p id="mensajeLoginAdmin" role="alert"></p>
+                </form>
+
+                <div id="contenidoAdmin" class="formOculto">
+                    <h2>Panel de Administración - Solicitudes de Postulantes</h2>
+                    <div id="contenedorPostulantes"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="main.js"></script>
+    <script src="admin.js"></script>
+    <script src="mapa.js"></script>
+    <script src="charlas.js"></script>
+
+</body>
+</html>
+
+    <script src="mapa.js"></script>
+    <script src="charlas.js"></script>
+
+</body>
+</html>

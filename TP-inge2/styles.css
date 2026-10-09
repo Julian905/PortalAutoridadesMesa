@@ -1,0 +1,394 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+#EncabezadoPortal {
+    background-color: #18406e;
+    margin: auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tituloEncabezado {
+    color: #ffffff;
+}
+
+main {
+    padding: 1rem 2rem;
+}
+
+.formOculto {
+    display: none !important;
+}
+
+#boton_postularse {
+    padding: 8px 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#boton_postularse:hover {
+    background-color: aqua;
+    border-color: black;
+}
+
+#formInscripcion {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 24px;
+    margin-top: 18px;
+    border-radius: 8px;
+    max-width: 520px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.campo label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.campo input, 
+.campo select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.campo-checkbox {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.campo-checkbox label {
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#boton_enviar {
+    background-color: #18406e;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#boton_enviar:hover {
+    background-color: #133357;
+}
+
+/* --- ESTILOS DE VISTA ADMINISTRADOR --- */
+
+#btnToggleAdmin {
+    background-color: #ffffff;
+    color: #18406e;
+    border: 2px solid #ffffff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#btnToggleAdmin:hover {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.login-admin {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #333333;
+    margin: 24px auto;
+    max-width: 420px;
+    padding: 24px;
+}
+
+.login-admin h2 {
+    margin-top: 0;
+}
+
+.aviso-demo {
+    color: #666666;
+    font-size: 0.9rem;
+}
+
+#botonIngresarAdmin {
+    background-color: #18406e;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 16px;
+    width: 100%;
+}
+
+#mensajeLoginAdmin {
+    color: #b42318;
+    margin-bottom: 0;
+}
+
+.postulante-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.postulante-card h3 {
+    margin: 0 0 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.badge-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.badge-aprobada {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-rechazada {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.acciones-admin {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-aprobar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-rechazar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-aprobar:hover {
+    background-color: #218838;
+}
+
+.btn-rechazar:hover {
+    background-color: #c82333;
+}
+
+#boton_ver_charlas {
+    padding: 8px 14px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    background-color: #18406e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#boton_ver_charlas:hover {
+    background-color: #133357;
+}
+
+/* Tarjetas interactivas de charlas */
+.charla-item {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.charla-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-color: #18406e;
+    background-color: #f0f7ff;
+}
+
+.charla-item h3 {
+    margin-top: 0;
+    color: #18406e;
+}
+
+.charla-item .indicador-mapa {
+    font-size: 0.85rem;
+    color: #0077cc;
+    font-weight: bold;
+}
+
+.charla-activa {
+    border-color: #0077cc !important;
+    background-color: #e3f2fd !important;
+    box-shadow: 0 0 12px rgba(0, 119, 204, 0.4) !important;
+    transform: scale(1.02);
+}
+
+.seccion-mapa {
+    margin: 24px 0;
+}
+
+.contenedor-mapa {
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 16px;
+    align-items: stretch;
+}
+
+#map {
+    width: 100%;
+    height: 520px;
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.panel-info-sede {
+    height: 520px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #dce2e9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.panel-vacio {
+    padding: 28px 20px;
+    text-align: center;
+    color: #526174;
+}
+
+.icono-mapa {
+    font-size: 36px;
+}
+
+.panel-vacio h3 {
+    color: #1e3a5f;
+    margin-bottom: 8px;
+}
+
+.encabezado-sede {
+    padding: 20px;
+    background: #1e416d;
+    color: white;
+}
+
+.encabezado-sede h3 {
+    margin: 0 0 8px;
+}
+
+.encabezado-sede p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.contenido-encuentros {
+    padding: 16px;
+}
+
+.titulo-encuentros {
+    margin: 0 0 14px;
+    font-size: 17px;
+    color: #1e3a5f;
+}
+
+.tarjeta-encuentro {
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 1px solid #dce2e9;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.tarjeta-encuentro h4 {
+    margin: 0 0 8px;
+    color: #1e416d;
+    font-size: 15px;
+}
+
+.tarjeta-encuentro p {
+    margin: 6px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.boton-seleccionar-encuentro {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #1e416d;
+    color: white;
+    cursor: pointer;
+}
+
+.boton-seleccionar-encuentro:hover {
+    background: #2c5688;
+}
+
+.mensaje-sin-encuentros {
+    padding: 20px;
+    color: #526174;
+}
+
+@media (max-width: 800px) {
+    .contenedor-mapa {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-info-sede {
+        height: auto;
+        max-height: 420px;
+    }
+
+    #map {
+        height: 400px;
+    }
+}
