@@ -1,6 +1,11 @@
 const btnToggleAdmin = document.getElementById("btnToggleAdmin");
 const vistaPostulante = document.getElementById("vistaPostulante");
 const vistaAdmin = document.getElementById("vistaAdmin");
+const formLoginAdmin = document.getElementById("formLoginAdmin");
+const contenidoAdmin = document.getElementById("contenidoAdmin");
+const contrasenaAdmin = document.getElementById("contrasenaAdmin");
+const mensajeLoginAdmin = document.getElementById("mensajeLoginAdmin");
+const contrasenaAdminDemo = "admin123";
 let modoAdmin = false;
 
 btnToggleAdmin.addEventListener("click", () => {
@@ -10,13 +15,33 @@ btnToggleAdmin.addEventListener("click", () => {
         vistaPostulante.classList.add("formOculto");
         vistaAdmin.classList.remove("formOculto");
         btnToggleAdmin.textContent = "⬅️ Volver al Portal";
-        renderizarPostulantesAdmin();
+        formLoginAdmin.classList.remove("formOculto");
+        contenidoAdmin.classList.add("formOculto");
+        contrasenaAdmin.value = "";
+        mensajeLoginAdmin.textContent = "";
     } else {
         vistaAdmin.classList.add("formOculto");
         vistaPostulante.classList.remove("formOculto");
         btnToggleAdmin.textContent = "⚙️ Vista Administrador";
+        contenidoAdmin.classList.add("formOculto");
+        formLoginAdmin.classList.remove("formOculto");
         setTimeout(() => mapa.invalidateSize(), 150);
     }
+});
+
+formLoginAdmin.addEventListener("submit", event => {
+    event.preventDefault();
+
+    if (contrasenaAdmin.value !== contrasenaAdminDemo) {
+        mensajeLoginAdmin.textContent = "La contraseña ingresada es incorrecta.";
+        contrasenaAdmin.select();
+        return;
+    }
+
+    mensajeLoginAdmin.textContent = "";
+    formLoginAdmin.classList.add("formOculto");
+    contenidoAdmin.classList.remove("formOculto");
+    renderizarPostulantesAdmin();
 });
 
 function renderizarPostulantesAdmin() {
