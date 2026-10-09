@@ -1,4 +1,3 @@
-
 const EstadoSolicitud = {
     PENDIENTE: "PENDIENTE",
     APROBADA: "APROBADA",
@@ -15,14 +14,14 @@ const sedes = [
     {
         id: 1,
         nombre: "Centro Municipal",
-        direccion: "San Miguel, Buenos Aires",
+        direccion: "Avenida Presidente Juan Domingo Perón 4433, San Miguel, Buenos Aires",
         latitud: -34.543,
         longitud: -58.711
     },
     {
         id: 2,
         nombre: "Centro Cultural",
-        direccion: "San Miguel, Buenos Aires",
+        direccion: "Peluffo 21, San Miguel, Buenos Aires",
         latitud: -34.545,
         longitud: -58.714
     }
@@ -126,6 +125,92 @@ function guardarEnLocalStorage() {
     );
 }
 
+if (!localStorage.getItem("datosEjemploInicializados")) {
+    if (postulantes.length === 0 && solicitudesPostulacion.length === 0) {
+        postulantes = [
+            {
+                id: 1001,
+                nombre: "Lucía",
+                apellido: "Gómez",
+                dni: "30111222",
+                fechaNacimiento: "1990-04-12",
+                direccionActual: "Calle Ficticia 123, San Miguel",
+                telefono: "1112345678",
+                email: "lucia.gomez@example.com",
+                fueAutoridadPreviamente: true,
+                cumplioCapacitacion: true,
+                esAfiliado: false,
+                nombrePartido: ""
+            },
+            {
+                id: 1002,
+                nombre: "Mateo",
+                apellido: "Pérez",
+                dni: "32999888",
+                fechaNacimiento: "1988-09-23",
+                direccionActual: "Avenida de Prueba 456, José C. Paz",
+                telefono: "1123456789",
+                email: "mateo.perez@example.com",
+                fueAutoridadPreviamente: false,
+                cumplioCapacitacion: false,
+                esAfiliado: false,
+                nombrePartido: ""
+            },
+            {
+                id: 1003,
+                nombre: "Sofía",
+                apellido: "López",
+                dni: "35123456",
+                fechaNacimiento: "1995-02-08",
+                direccionActual: "Pasaje Demo 789, San Miguel",
+                telefono: "1134567890",
+                email: "sofia.lopez@example.com",
+                fueAutoridadPreviamente: true,
+                cumplioCapacitacion: false,
+                esAfiliado: true,
+                nombrePartido: "Partido de Ejemplo"
+            }
+        ];
+
+        solicitudesPostulacion = [
+            {
+                id: 2001,
+                fechaRegistro: "2026-10-01",
+                estado: EstadoSolicitud.PENDIENTE,
+                motivoRechazo: "",
+                postulanteId: 1001,
+                distritoElectoralId: "1",
+                charlaId: 1,
+                encuentroId: "1"
+            },
+            {
+                id: 2002,
+                fechaRegistro: "2026-10-02",
+                estado: EstadoSolicitud.APROBADA,
+                motivoRechazo: "",
+                postulanteId: 1002,
+                distritoElectoralId: "2",
+                charlaId: 2,
+                encuentroId: "4"
+            },
+            {
+                id: 2003,
+                fechaRegistro: "2026-10-03",
+                estado: EstadoSolicitud.RECHAZADA,
+                motivoRechazo: "",
+                postulanteId: 1003,
+                distritoElectoralId: "1",
+                charlaId: 3,
+                encuentroId: "5"
+            }
+        ];
+
+        guardarEnLocalStorage();
+    }
+
+    localStorage.setItem("datosEjemploInicializados", "true");
+}
+
 function formatearFecha(fecha) {
     if (!fecha) {
         return "";
@@ -138,10 +223,63 @@ function formatearFecha(fecha) {
 
 const formulario = document.getElementById("formInscripcion");
 const btnPostularse = document.getElementById("boton_postularse");
+const selectorCharla = document.getElementById("charla");
+const campoFechaNacimiento = document.getElementById("fechaNacimiento");
+const mensajeInscripcion = document.getElementById("mensaje");
+const mensajeEdadInsuficiente =
+    "No podés inscribirte porque sos menor de 18 años.";
+
+campoFechaNacimiento.addEventListener("input", () => {
+    if (mensajeInscripcion.textContent !== mensajeEdadInsuficiente) {
+        return;
+    }
+
+    if (calcularEdad(campoFechaNacimiento.value) >= 18) {
+        mensajeInscripcion.textContent =
+            "Edad válida. Volvé a presionar «Realizar inscripción» para continuar.";
+    }
+});
+
+function calcularEdad(fechaNacimiento) {
+    const [anio, mes, dia] = fechaNacimiento.split("-").map(Number);
+    const hoy = new Date();
+    let edad = hoy.getFullYear() - anio;
+
+    if (
+        hoy.getMonth() + 1 < mes ||
+        (hoy.getMonth() + 1 === mes && hoy.getDate() < dia)
+    ) {
+        edad--;
+    }
+
+    return edad;
+}
 
 btnPostularse.addEventListener("click", () => {
     formulario.classList.toggle("formOculto");
 });
+
+function actualizarDatosEncuentro() {
+    const encuentroId = selectorCharla.value;
+    const charla = charlas.find(item =>
+        item.encuentros.some(encuentro =>
+            String(encuentro.id) === encuentroId
+        )
+    );
+    const encuentro = charla?.encuentros.find(
+        item => String(item.id) === encuentroId
+    );
+    const sede = encuentro
+        ? sedes.find(item => item.id === encuentro.sedeId)
+        : null;
+
+    document.getElementById("sedeEncuentro").value =
+        sede ? sede.nombre : "";
+    document.getElementById("horarioEncuentro").value =
+        encuentro ? `${encuentro.horario} hs` : "";
+}
+
+selectorCharla.addEventListener("change", actualizarDatosEncuentro);
 
 formulario.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -150,7 +288,9 @@ formulario.addEventListener("submit", function(event) {
     const telefono = document.getElementById("telefono").value.trim();
     const email = document.getElementById("email").value.trim();
     const distrito = document.getElementById("distrito").value;
-    const mensaje = document.getElementById("mensaje");
+    const mensaje = mensajeInscripcion;
+
+    mensaje.textContent = "";
 
     if (!/^\d{7,8}$/.test(dni)) {
         mensaje.textContent =
@@ -173,6 +313,11 @@ formulario.addEventListener("submit", function(event) {
     if (distrito === "") {
         mensaje.textContent =
             "Seleccioná un distrito electoral.";
+        return;
+    }
+
+    if (calcularEdad(campoFechaNacimiento.value) < 18) {
+        mensaje.textContent = mensajeEdadInsuficiente;
         return;
     }
 
@@ -233,6 +378,12 @@ formulario.addEventListener("submit", function(event) {
 
     mensaje.textContent =
         "¡Inscripción realizada correctamente! La solicitud quedó pendiente de revisión.";
+
+    console.log("Postulante:", postulante);
+    console.log("Solicitud:", solicitud);
+
+    formulario.reset();
+});
 
     console.log("Postulante:", postulante);
     console.log("Solicitud:", solicitud);
