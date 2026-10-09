@@ -116,6 +116,40 @@ main {
     color: #ffffff;
 }
 
+.login-admin {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #333333;
+    margin: 24px auto;
+    max-width: 420px;
+    padding: 24px;
+}
+
+.login-admin h2 {
+    margin-top: 0;
+}
+
+.aviso-demo {
+    color: #666666;
+    font-size: 0.9rem;
+}
+
+#botonIngresarAdmin {
+    background-color: #18406e;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 16px;
+    width: 100%;
+}
+
+#mensajeLoginAdmin {
+    color: #b42318;
+    margin-bottom: 0;
+}
+
 .postulante-card {
     background: #ffffff;
     border: 1px solid #e0e0e0;
