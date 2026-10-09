@@ -2,9 +2,12 @@ const marcadoresPorSede = {};
 
 const mapa = L.map("map").setView([-34.544, -58.712], 14);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(mapa);
+L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png",
+    {
+        attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 20
+    }
+    ).addTo(mapa);
 
 function mostrarInfoSede(sede) {
     const panel = document.getElementById("panelInfoSede");
