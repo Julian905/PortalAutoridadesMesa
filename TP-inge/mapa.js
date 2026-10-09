@@ -1,4 +1,3 @@
-
 const marcadoresPorSede = {};
 
 const mapa = L.map("map").setView([-34.544, -58.712], 14);
@@ -62,10 +61,16 @@ function mostrarInfoSede(sede) {
     panel.querySelectorAll(".boton-seleccionar-encuentro").forEach(boton => {
         boton.addEventListener("click", () => {
             const selector = document.getElementById("charla");
+            const formulario = document.getElementById("formInscripcion");
 
             if (selector) {
                 selector.value = boton.dataset.encuentroId;
-                selector.scrollIntoView({
+                selector.dispatchEvent(new Event("change"));
+            }
+
+            if (formulario) {
+                formulario.classList.remove("formOculto");
+                formulario.scrollIntoView({
                     behavior: "smooth",
                     block: "center"
                 });
@@ -95,3 +100,4 @@ sedes.forEach(sede => {
         mostrarInfoSede(sede);
     });
 });
+
